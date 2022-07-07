@@ -1,4 +1,4 @@
-package com.moon.ojolapp
+package com.onedev.ojolapp
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

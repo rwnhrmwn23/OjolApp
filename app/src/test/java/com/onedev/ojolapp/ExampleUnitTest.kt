@@ -1,4 +1,4 @@
-package com.moon.ojolapp
+package com.onedev.ojolapp
 
 import org.junit.Test
 
