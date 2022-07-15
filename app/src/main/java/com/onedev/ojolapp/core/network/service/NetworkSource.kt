@@ -1,5 +1,6 @@
 package com.onedev.ojolapp.core.network.service
 
+import com.onedev.ojolapp.core.domain.model.Customer
 import com.onedev.ojolapp.core.domain.model.Login
 import com.onedev.ojolapp.core.domain.model.Register
 import com.onedev.ojolapp.core.network.response.LoginRequest
@@ -33,6 +34,12 @@ class NetworkSource(private val webServiceProvider: WebServiceProvider) {
     suspend fun registerDriver(request: RegisterRequest): FlowState<Register> {
         return webServiceProvider.get().registerDriver(request).asFlowStateEvent {
             Mapper.mapRegisterResponse(it)
+        }
+    }
+
+    suspend fun customerAll() : FlowState<List<Customer>> {
+        return webServiceProvider.get().customerAll().asFlowStateEvent {
+            Mapper.mapCustomerResponse(it)
         }
     }
 

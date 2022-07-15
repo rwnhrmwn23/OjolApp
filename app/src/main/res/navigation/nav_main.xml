@@ -16,6 +16,12 @@
         <action
             android:id="@+id/action_loginCustomerFragment_to_loginDriverFragment"
             app:destination="@id/loginDriverFragment" />
+        <action
+            android:id="@+id/action_loginCustomerFragment_to_registerCustomerFragment2"
+            app:destination="@id/registerCustomerFragment" />
+        <action
+            android:id="@+id/action_loginCustomerFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerCustomerFragment"
@@ -30,10 +36,18 @@
         <action
             android:id="@+id/action_loginDriverFragment_to_registerDriverFragment"
             app:destination="@id/registerDriverFragment" />
+        <action
+            android:id="@+id/action_loginDriverFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerDriverFragment"
         android:name="com.onedev.ojolapp.ui.register.driver.RegisterDriverFragment"
         android:label="RegisterDriverFragment"
         tools:layout="@layout/fragment_register_driver"/>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.onedev.ojolapp.ui.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
 </navigation>

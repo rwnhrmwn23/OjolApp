@@ -1,5 +1,6 @@
 package com.onedev.ojolapp.core.repository
 
+import com.onedev.ojolapp.core.domain.model.Customer
 import com.onedev.ojolapp.core.domain.model.Login
 import com.onedev.ojolapp.core.domain.model.Register
 import com.onedev.ojolapp.core.network.response.LoginRequest
@@ -12,10 +13,12 @@ interface OjolRepository {
     val registerCustomerStateEventManager: StateEventManager<Register>
     val loginDriverStateEventManager: StateEventManager<Login>
     val registerDriverStateEventManager: StateEventManager<Register>
+    val customerStateEventManager: StateEventManager<List<Customer>>
 
     suspend fun loginCustomer(loginRequest: LoginRequest)
     suspend fun registerCustomer(registerRequest: RegisterRequest)
     suspend fun loginDriver(loginRequest: LoginRequest)
     suspend fun registerDriver(registerRequest: RegisterRequest)
+    suspend fun customerAll()
 
 }

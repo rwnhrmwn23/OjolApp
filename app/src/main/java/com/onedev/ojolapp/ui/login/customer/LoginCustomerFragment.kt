@@ -61,9 +61,10 @@ class LoginCustomerFragment : ScopeFragment(), View.OnClickListener {
             binding?.btnLoginCustomer?.visible()
             binding?.progressCircular?.gone()
             requireContext().putBooleanPreference(IS_LOGIN, true)
-            requireContext().putStringPreference(TOKEN, data.token.toString())
+            requireContext().putStringPreference(TOKEN, getString(R.string.bearer, data.token.toString()))
             requireContext().putStringPreference(LOGIN_AS, getString(R.string.customer))
             requireContext().showToast(getString(R.string.login_success))
+            findNavController().navigate(LoginCustomerFragmentDirections.actionLoginCustomerFragmentToMainFragment())
         }
     }
 
