@@ -1,4 +1,4 @@
-package com.onedev.ojolapp.ui
+package com.onedev.ojolapp.ui.login.customer
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,13 +10,12 @@ import com.onedev.ojolapp.utils.convertEventToSubscriber
 import kotlinx.coroutines.launch
 import org.koin.core.annotation.Scope
 
-@Scope(MainActivity::class)
-class MainViewModel(
+@Scope(LoginCustomerFragment::class)
+class LoginCustomerViewModel(
     private val ojolRepository: OjolRepository
 ) : ViewModel(){
 
-    private val loginCustomerManager = ojolRepository.loginCustomerStateEventManager
-
+    private val loginCustomerManager = ojolRepository.loginStateEventManager
     private val loginCustomerScope = loginCustomerManager.createScope(viewModelScope)
 
     fun subscribeLoginCustomer(subscriber: StateEventSubscriber<Login>) {

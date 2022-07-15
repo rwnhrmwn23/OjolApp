@@ -6,6 +6,7 @@ import com.onedev.ojolapp.event.MutableStateEventManager
 import com.onedev.ojolapp.event.StateEvent
 import com.onedev.ojolapp.event.StateEventManager
 import com.onedev.ojolapp.event.StateEventSubscriber
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.Response
@@ -30,13 +31,14 @@ fun <T> ViewModel.convertEventToSubscriber(
 fun <T, U> Response<T>.asFlowStateEvent(mapper: (T) -> U): FlowState<U> {
     return flow {
         emit(StateEvent.Loading())
+        delay(2000)
         val response = try {
             val body = body()
             if (isSuccessful && body != null) {
                 val dataMapper = mapper.invoke(body)
                 StateEvent.Success(dataMapper)
             } else {
-                val exception = Throwable(message())
+                val exception = Throwable(body.toString())
                 StateEvent.Failure(exception)
             }
         } catch (e: Throwable) {

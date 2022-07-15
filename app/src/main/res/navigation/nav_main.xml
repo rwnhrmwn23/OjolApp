@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/loginCustomerFragment">
+
+    <fragment
+        android:id="@+id/loginCustomerFragment"
+        android:name="com.onedev.ojolapp.ui.login.customer.LoginCustomerFragment"
+        android:label="fragment_login_customer"
+        tools:layout="@layout/fragment_login_customer" >
+        <action
+            android:id="@+id/action_loginCustomerFragment_to_registerCustomerFragment"
+            app:destination="@id/registerCustomerFragment" />
+        <action
+            android:id="@+id/action_loginCustomerFragment_to_loginDriverFragment"
+            app:destination="@id/loginDriverFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerCustomerFragment"
+        android:name="com.onedev.ojolapp.ui.register.customer.RegisterCustomerFragment"
+        android:label="fragment_register_customer"
+        tools:layout="@layout/fragment_register_customer" />
+    <fragment
+        android:id="@+id/loginDriverFragment"
+        android:name="com.onedev.ojolapp.ui.login.driver.LoginDriverFragment"
+        android:label="LoginDriverFragment"
+        tools:layout="@layout/fragment_login_driver" >
+        <action
+            android:id="@+id/action_loginDriverFragment_to_registerDriverFragment"
+            app:destination="@id/registerDriverFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerDriverFragment"
+        android:name="com.onedev.ojolapp.ui.register.driver.RegisterDriverFragment"
+        android:label="RegisterDriverFragment"
+        tools:layout="@layout/fragment_register_driver"/>
+</navigation>

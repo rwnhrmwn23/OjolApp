@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">OjolApp</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="username">Username</string>
+    <string name="login_customer">Login Customer</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="login_success">Login Success</string>
+    <string name="customer">Customer</string>
+    <string name="driver">Driver</string>
+    <string name="login_as_driver">Login as Driver</string>
+    <string name="not_have_account">Not have account ? Register</string>
+    <string name="register_customer">Register Customer</string>
+    <string name="name">Name</string>
+    <string name="have_account">Have account ? Login</string>
+    <string name="register">Register</string>
+    <string name="register_success">Register Success</string>
+    <string name="login_as_customer">Login as Customer</string>
+    <string name="register_driver">Register Driver</string>
 </resources>
