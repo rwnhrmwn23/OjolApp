@@ -15,7 +15,7 @@ class LoginCustomerViewModel(
     private val ojolRepository: OjolRepository
 ) : ViewModel(){
 
-    private val loginCustomerManager = ojolRepository.loginStateEventManager
+    private val loginCustomerManager = ojolRepository.loginCustomerStateEventManager
     private val loginCustomerScope = loginCustomerManager.createScope(viewModelScope)
 
     fun subscribeLoginCustomer(subscriber: StateEventSubscriber<Login>) {

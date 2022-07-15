@@ -15,11 +15,11 @@ class OjolRepositoryImpl(
 ): OjolRepository {
 
     private val _loginCustomerStateEventManager = default<Login>()
-    override val loginStateEventManager: StateEventManager<Login>
+    override val loginCustomerStateEventManager: StateEventManager<Login>
         get() = _loginCustomerStateEventManager
 
     private val _registerCustomerStateEventManager = default<Register>()
-    override val registerStateEventManager: StateEventManager<Register>
+    override val registerCustomerStateEventManager: StateEventManager<Register>
         get() = _registerCustomerStateEventManager
 
     override suspend fun loginCustomer(loginRequest: LoginRequest) {

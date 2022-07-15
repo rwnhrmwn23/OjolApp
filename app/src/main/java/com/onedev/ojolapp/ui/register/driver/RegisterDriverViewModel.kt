@@ -15,7 +15,7 @@ class RegisterDriverViewModel(
     private val ojolRepository: OjolRepository
 ) : ViewModel(){
 
-    private val registerDriverManager = ojolRepository.registerStateEventManager
+    private val registerDriverManager = ojolRepository.registerDriverStateEventManager
     private val registerDriverScope = registerDriverManager.createScope(viewModelScope)
 
     fun subscribeRegisterCustomer(subscriber: StateEventSubscriber<Register>) {

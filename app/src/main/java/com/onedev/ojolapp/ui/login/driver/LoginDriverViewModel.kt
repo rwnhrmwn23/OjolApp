@@ -15,7 +15,7 @@ class LoginDriverViewModel(
     private val ojolRepository: OjolRepository
 ) : ViewModel(){
 
-    private val loginDriverManager = ojolRepository.loginStateEventManager
+    private val loginDriverManager = ojolRepository.loginDriverStateEventManager
     private val loginDriverScope = loginDriverManager.createScope(viewModelScope)
 
     fun subscribeLoginDriver(subscriber: StateEventSubscriber<Login>) {

@@ -15,7 +15,7 @@ class RegisterCustomerViewModel(
     private val ojolRepository: OjolRepository
 ) : ViewModel(){
 
-    private val registerCustomerManager = ojolRepository.registerStateEventManager
+    private val registerCustomerManager = ojolRepository.registerCustomerStateEventManager
     private val registerCustomerScope = registerCustomerManager.createScope(viewModelScope)
 
     fun subscribeRegisterCustomer(subscriber: StateEventSubscriber<Register>) {

@@ -8,8 +8,10 @@ import com.onedev.ojolapp.event.StateEventManager
 
 interface OjolRepository {
 
-    val loginStateEventManager: StateEventManager<Login>
-    val registerStateEventManager: StateEventManager<Register>
+    val loginCustomerStateEventManager: StateEventManager<Login>
+    val registerCustomerStateEventManager: StateEventManager<Register>
+    val loginDriverStateEventManager: StateEventManager<Login>
+    val registerDriverStateEventManager: StateEventManager<Register>
 
     suspend fun loginCustomer(loginRequest: LoginRequest)
     suspend fun registerCustomer(registerRequest: RegisterRequest)
