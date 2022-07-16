@@ -7,7 +7,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.GET
-import retrofit2.http.Headers
 import retrofit2.http.POST
 
 interface WebService {
@@ -33,8 +32,16 @@ interface WebService {
     ): Response<RegisterResponse>
 
     @GET(CUSTOMER_ALL)
-    @Headers("Authorization:eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJjZTQ1Nzg1NC1jNGI3LTQ5OGUtODZlMS1lZDA5YTM2M2UxNTgiLCJhdXRoIjpbImphcHJhIl0sImV4cCI6MTY1Nzk4NjQxNn0.ExN9q7-qpc9wjMh7bbl1vMPEAgza70t0Ffw5u0TnjXw")
-    suspend fun customerAll(): Response<CustomerResponse>
+    suspend fun customerAll(): Response<CustomerAllResponse>
+
+    @GET(CUSTOMER)
+    suspend fun customer(): Response<CustomerResponse>
+
+    @GET(DRIVER_ALL)
+    suspend fun driverAll(): Response<DriverAllResponse>
+
+    @GET(DRIVER)
+    suspend fun driver(): Response<DriverResponse>
 
     companion object {
         const val LOGIN_CUSTOMER = "v1/customer/login"
@@ -42,11 +49,25 @@ interface WebService {
         const val LOGIN_DRIVER = "v1/driver/login"
         const val REGISTER_DRIVER = "v1/driver/register"
         const val CUSTOMER_ALL = "v1/customer/all"
+        const val CUSTOMER = "v1/customer"
+        const val DRIVER_ALL = "v1/driver/all"
+        const val DRIVER = "v1/driver/"
+
+        private var okhttpClientWithToken = OkHttpClientInstance.okhttpClientWithToken()
 
         fun build(): WebService {
             return Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                .create(WebService::class.java)
+        }
+
+        fun buildWithAuth(): WebService {
+            return Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(okhttpClientWithToken)
                 .build()
                 .create(WebService::class.java)
         }

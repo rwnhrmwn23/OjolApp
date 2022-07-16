@@ -17,5 +17,8 @@
     <string name="register_success">Register Success</string>
     <string name="login_as_customer">Login as Customer</string>
     <string name="register_driver">Register Driver</string>
-    <string name="bearer">Bearer %s</string>
+    <string name="hallo">Hallo %s</string>
+    <string name="login_info">You\'re login as %s</string>
+    <string name="list_customer">List Cutomer</string>
+    <string name="list_driver">List Driver</string>
 </resources>

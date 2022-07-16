@@ -6,7 +6,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.onedev.ojolapp.R
 import com.onedev.ojolapp.databinding.ActivityMainBinding
 import com.onedev.ojolapp.utils.Constant.IS_LOGIN
-import com.onedev.ojolapp.utils.getBooleanPreference
+import com.onedev.ojolapp.utils.getInstance
 import org.koin.androidx.scope.ScopeActivity
 
 class MainActivity : ScopeActivity() {
@@ -24,7 +24,7 @@ class MainActivity : ScopeActivity() {
         val inflater = navHostFragment.navController.navInflater
         val graph = inflater.inflate(R.navigation.nav_main)
 
-        if (this@MainActivity.getBooleanPreference(IS_LOGIN)) {
+        if (getInstance(this@MainActivity).getBoolean(IS_LOGIN)) {
             graph.setStartDestination(R.id.mainFragment)
         } else {
             graph.setStartDestination(R.id.loginCustomerFragment)

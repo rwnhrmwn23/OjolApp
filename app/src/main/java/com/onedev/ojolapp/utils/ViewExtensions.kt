@@ -7,6 +7,12 @@ import androidx.navigation.Navigation
 
 private lateinit var preferenceManager: PreferenceManager
 
+@Synchronized
+fun getInstance(context: Context): PreferenceManager {
+    preferenceManager = PreferenceManager(context)
+    return preferenceManager
+}
+
 fun View.visible() {
     visibility = View.VISIBLE
 }
@@ -17,31 +23,6 @@ fun View.gone() {
 
 fun Context.showToast(message: String) {
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-}
-
-fun Context.putStringPreference(key: String, value: String) {
-    preferenceManager = PreferenceManager(this)
-    preferenceManager.putString(key, value)
-}
-
-fun Context.getStringPreference(key: String): String {
-    preferenceManager = PreferenceManager(this)
-    return preferenceManager.getString(key)
-}
-
-fun Context.putBooleanPreference(key: String, value: Boolean) {
-    preferenceManager = PreferenceManager(this)
-    preferenceManager.putBoolean(key, value)
-}
-
-fun Context.getBooleanPreference(key: String): Boolean {
-    preferenceManager = PreferenceManager(this)
-    return preferenceManager.getBoolean(key)
-}
-
-fun Context.clearPreference() {
-    preferenceManager = PreferenceManager(this)
-    preferenceManager.clearPreference()
 }
 
 fun View.navigateUp() {

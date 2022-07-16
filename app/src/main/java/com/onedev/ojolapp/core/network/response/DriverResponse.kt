@@ -1,6 +1,6 @@
 package com.onedev.ojolapp.core.network.response
 
-data class CustomerResponse(
+data class DriverResponse(
     val `data`: Data?,
     val message: String?,
     val status: Boolean?

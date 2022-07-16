@@ -60,9 +60,9 @@ class LoginDriverFragment : ScopeFragment(), View.OnClickListener {
         override fun onSuccess(data: Login) {
             binding?.btnLoginDriver?.visible()
             binding?.progressCircular?.gone()
-            requireContext().putBooleanPreference(IS_LOGIN, true)
-            requireContext().putStringPreference(TOKEN, getString(R.string.bearer, data.token.toString()))
-            requireContext().putStringPreference(LOGIN_AS, getString(R.string.customer))
+            getInstance(requireContext()).putBoolean(IS_LOGIN, true)
+            getInstance(requireContext()).putString(TOKEN, data.token.toString())
+            getInstance(requireContext()).putString(LOGIN_AS, getString(R.string.driver ))
             requireContext().showToast(getString(R.string.login_success))
             findNavController().navigate(LoginDriverFragmentDirections.actionLoginDriverFragmentToMainFragment())
         }

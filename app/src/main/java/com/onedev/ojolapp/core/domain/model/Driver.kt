@@ -1,6 +1,6 @@
 package com.onedev.ojolapp.core.domain.model
 
-data class Customer(
+data class Driver(
     val id: String?,
     val name: String?,
     val username: String?,

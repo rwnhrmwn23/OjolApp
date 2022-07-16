@@ -7,4 +7,8 @@ class WebServiceProvider {
     fun get(): WebService {
         return WebService.build()
     }
+
+    fun getWithToken(): WebService {
+        return WebService.buildWithAuth()
+    }
 }

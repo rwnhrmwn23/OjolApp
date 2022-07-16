@@ -1,6 +1,7 @@
 package com.onedev.ojolapp.core.repository
 
 import com.onedev.ojolapp.core.domain.model.Customer
+import com.onedev.ojolapp.core.domain.model.Driver
 import com.onedev.ojolapp.core.domain.model.Login
 import com.onedev.ojolapp.core.domain.model.Register
 import com.onedev.ojolapp.core.network.response.LoginRequest
@@ -31,9 +32,21 @@ class OjolRepositoryImpl(
     override val registerDriverStateEventManager: StateEventManager<Register>
         get() = _registerDriverStateEventManager
 
-    private val _customerStateEventManager = default<List<Customer>>()
-    override val customerStateEventManager: StateEventManager<List<Customer>>
+    private val _customerAllStateEventManager = default<List<Customer>>()
+    override val customerAllStateEventManager: StateEventManager<List<Customer>>
+        get() = _customerAllStateEventManager
+
+    private val _customerStateEventManager = default<Customer>()
+    override val customerStateEventManager: StateEventManager<Customer>
         get() = _customerStateEventManager
+
+    private val _driverAllStateEventManager = default<List<Driver>>()
+    override val driverAllStateEventManager: StateEventManager<List<Driver>>
+        get() = _driverAllStateEventManager
+
+    private val _driverStateEventManager = default<Driver>()
+    override val driverStateEventManager: StateEventManager<Driver>
+        get() = _driverStateEventManager
 
     override suspend fun loginCustomer(loginRequest: LoginRequest) {
         networkSource.loginCustomer(loginRequest)
@@ -57,8 +70,21 @@ class OjolRepositoryImpl(
 
     override suspend fun customerAll() {
         networkSource.customerAll()
+            .collect(_customerAllStateEventManager)
+    }
+
+    override suspend fun customer() {
+        networkSource.customer()
             .collect(_customerStateEventManager)
     }
 
+    override suspend fun driverAll() {
+        networkSource.driverAll()
+            .collect(_driverAllStateEventManager)
+    }
 
+    override suspend fun driver() {
+        networkSource.driver()
+            .collect(_driverStateEventManager)
+    }
 }
